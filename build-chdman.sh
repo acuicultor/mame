@@ -1,5 +1,20 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
+echo "Generating version.cpp"
+
+$(SRC)=src
+$(VERSION) = termux
+touch $(SRC)/version.cpp
+echo '#define BARE_BUILD_VERSION "0.238"' >> $(SRC)/version.cpp
+echo '#define BARE_VCS_REVISION "$(VERSION)"' >> $(SRC)/version.cpp
+echo 'extern const char bare_build_version[];' >> $(SRC)/version.cpp
+echo 'extern const char bare_vcs_revision[];'>> $(SRC)/version.cpp
+echo 'extern const char build_version[];'>> $(SRC)/version.cpp
+echo 'const char bare_build_version[] =  BARE_BUILD_VERSION;' >> $(SRC)/version.cpp
+echo 'const char bare_vcs_revision[] = BARE_VCS_REVISION;'>> $(SRC)/version.cpp
+echo 'const char build_version[] = BARE_BUILD_VERSION " (" BARE_VCS_REVISION ")"'; >> $(SRC)/version.cpp
+
+
 echo "Building libutf8proc.a"
 
 mkdir -p obj/Release/3rdparty/utf8proc
