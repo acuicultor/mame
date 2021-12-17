@@ -2,17 +2,16 @@
 
 echo "Generating version.cpp"
 
-SRC = src
-VERSION = termux
-touch $(SRC)/version.cpp
-echo '#define BARE_BUILD_VERSION "0.238"' >> $(SRC)/version.cpp
-echo '#define BARE_VCS_REVISION "$(VERSION)"' >> $(SRC)/version.cpp
-echo 'extern const char bare_build_version[];' >> $(SRC)/version.cpp
-echo 'extern const char bare_vcs_revision[];'>> $(SRC)/version.cpp
-echo 'extern const char build_version[];'>> $(SRC)/version.cpp
-echo 'const char bare_build_version[] =  BARE_BUILD_VERSION;' >> $(SRC)/version.cpp
-echo 'const char bare_vcs_revision[] = BARE_VCS_REVISION;'>> $(SRC)/version.cpp
-echo 'const char build_version[] = BARE_BUILD_VERSION " (" BARE_VCS_REVISION ")"'; >> $(SRC)/version.cpp
+
+touch src/version.cpp
+echo '#define BARE_BUILD_VERSION "0.238"' >> src/version.cpp
+echo '#define BARE_VCS_REVISION "android"' >> src/version.cpp
+echo 'extern const char bare_build_version[];' >> src/version.cpp
+echo 'extern const char bare_vcs_revision[];'>> src/version.cpp
+echo 'extern const char build_version[];'>> src/version.cpp
+echo 'const char bare_build_version[] =  BARE_BUILD_VERSION;' >> src/version.cpp
+echo 'const char bare_vcs_revision[] = BARE_VCS_REVISION;'>> src/version.cpp
+echo 'const char build_version[] = BARE_BUILD_VERSION " (" BARE_VCS_REVISION ")";' >> src/version.cpp
 
 
 echo "Building libutf8proc.a"
@@ -192,3 +191,10 @@ echo "Installing"
 
 chmod a+rwx chdman
 mv chdman /data/data/com.termux/files/usr/bin
+
+echo "Cleaning sources"
+
+rm -rf obj
+rm src/version.cpp
+rm scripts/src/*.a
+rm scripts/src/osd/mame_mame/*.a
