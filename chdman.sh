@@ -12,7 +12,7 @@ then
 		mv chdman /data/data/com.termux/files/usr/bin
 fi
 
-read -p 'Where are your games located:(absolute path)' location
+read -p 'Where are your games located(absolute path):' location
 
 if test ! -f $location/conversion.sh;
 then
