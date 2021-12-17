@@ -1548,7 +1548,7 @@ static UInt32 GetOptimum(CLzmaEnc *p, UInt32 position, UInt32 *backRes)
     }
   }
 }
-}
+
 
 #define ChangePair(smallDist, bigDist) (((bigDist) >> 7) > (smallDist))
 
