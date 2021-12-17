@@ -2,8 +2,8 @@
 
 echo "Generating version.cpp"
 
-$(SRC)=src
-$(VERSION) = termux
+SRC = src
+VERSION = termux
 touch $(SRC)/version.cpp
 echo '#define BARE_BUILD_VERSION "0.238"' >> $(SRC)/version.cpp
 echo '#define BARE_VCS_REVISION "$(VERSION)"' >> $(SRC)/version.cpp
