@@ -19,7 +19,7 @@ then
 	echo "Creating conversion script in games folder:"
 	touch $location/conversion.sh
 	chmod a+rwx $location/conversion.sh
-	echo 'for i in *.iso' >> $location/conversion.sh
+	echo 'for i in *.cue' >> $location/conversion.sh
 	echo 'do' >> $location/conversion.sh
 	echo '	chdman createcd -i "$i" -o "${i%.*}.chd"' >> $location/conversion.sh
 	echo '	rm -rf "$i"' >> $location/conversion.sh
